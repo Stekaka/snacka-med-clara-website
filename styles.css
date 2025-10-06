@@ -391,6 +391,8 @@ html {
     padding: 8px;
     border-radius: 8px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    position: relative;
 }
 
 .hamburger:hover {
@@ -400,11 +402,11 @@ html {
 
 .bar {
     width: 24px;
-    height: 2px;
+    height: 3px;
     background-color: white;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 1px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Hero Section */
@@ -1482,7 +1484,7 @@ img, img:focus, img:hover, img:active, img:focus-visible {
 
 .service-section-content {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
     max-width: 1000px;
@@ -1493,15 +1495,15 @@ img, img:focus, img:hover, img:active, img:focus-visible {
 }
 
 .service-section-content.reverse {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 .service-section-content.reverse .service-section-text {
-    order: unset;
+    order: 2;
 }
 
 .service-section-content.reverse .service-section-image {
-    order: unset;
+    order: 1;
 }
 
 .service-section-text h2 {
@@ -1633,7 +1635,10 @@ img, img:focus, img:hover, img:active, img:focus-visible {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
-        display: flex;
+        display: flex !important;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .nav-menu {
@@ -1748,7 +1753,8 @@ img, img:focus, img:hover, img:active, img:focus-visible {
         padding: 0 1rem;
     }
     
-    .service-section-content.reverse .service-section-text {
+    .service-section-content.reverse .service-section-text,
+    .service-section-content.reverse .service-section-image {
         order: unset;
     }
     
