@@ -152,11 +152,19 @@ textarea:focus {
 
 /* Restore focus styles for buttons and links */
 button:focus,
-a:focus,
 .btn:focus,
 .nav-link:focus {
     outline: 2px solid var(--primary-color) !important;
     outline-offset: 2px !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+/* Remove focus outline from logo link */
+a:focus,
+.nav-logo-link:focus {
+    outline: none !important;
     border: none !important;
     box-shadow: none !important;
     background: none !important;
@@ -264,10 +272,25 @@ html {
     display: block;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .nav-logo-link:hover {
     transform: translateY(-1px);
+}
+
+.nav-logo-link:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.nav-logo-link:active {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .nav-logo-img {

@@ -62,6 +62,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Special handling for logo link to scroll to top
+document.querySelectorAll('.nav-logo-link').forEach(logoLink => {
+    logoLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
 // Service pre-fill function
 function prefillContactForm(service) {
     const serviceSelect = document.querySelector('select[name="service"]');
