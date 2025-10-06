@@ -88,18 +88,24 @@ document.querySelectorAll('.nav-logo-link').forEach(logoLink => {
     logoLink.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
         
-        // If it's a link to another page (contains .html), let it work normally
-        if (href && href.includes('.html')) {
-            // Let the browser handle the navigation
+        // If it's a link to index.html (home page), scroll to top
+        if (href && href.includes('index.html')) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
             return;
         }
         
         // If it's an anchor link on the same page, prevent default and scroll
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
