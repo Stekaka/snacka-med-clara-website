@@ -260,6 +260,16 @@ html {
     align-items: center;
 }
 
+.nav-logo-link {
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-logo-link:hover {
+    transform: translateY(-1px);
+}
+
 .nav-logo-img {
     height: 50px;
     width: auto;
@@ -268,8 +278,7 @@ html {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-logo-img:hover {
-    transform: translateY(-1px);
+.nav-logo-link:hover .nav-logo-img {
     filter: brightness(1.1);
 }
 
