@@ -192,36 +192,12 @@ html::after {
     width: 0 !important;
     height: 0 !important;
     overflow: hidden !important;
-}
+} 
 
-/* Hide any browser-generated accessibility elements */
-[role="button"],
-[aria-label],
-[aria-labelledby],
-.sr-only,
-.screen-reader-only,
-.skip-link,
-.skip-to-main,
-.skip-to-content {
-    position: absolute !important;
-    left: -9999px !important;
-    top: -9999px !important;
-    width: 1px !important;
-    height: 1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: none !important;
-    outline: none !important;
-    background: none !important;
-    color: transparent !important;
-    text-decoration: none !important;
-}
 
 
 /* Force glassmorphism on navbar - override any other styles */
 .navbar,
-.navbar *,
 body,
 html {
     background: transparent !important;
@@ -385,9 +361,10 @@ html {
 
 /* HAMBURGER MENU */
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
+    gap: 5px;
     width: 30px;
     height: 30px;
     background: transparent;
@@ -399,17 +376,17 @@ html {
 }
 
 .hamburger-line {
+    display: block;
     width: 25px;
     height: 3px;
-    background-color: #FF0000;
+background-color: var(--primary-color, #111);
     border-radius: 2px;
     transition: all 0.3s ease;
-    display: block;
     margin: 2px 0;
 }
 
 .hamburger:hover .hamburger-line {
-    background-color: var(--primary-dark);
+    background-color: var(--primary-dark, #111);
 }
 
 /* Hero Section */
