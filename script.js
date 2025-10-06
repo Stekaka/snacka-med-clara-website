@@ -174,81 +174,158 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Form handling
+// Form handling with security measures
 const guideForm = document.getElementById('guide-form');
 const contactForm = document.getElementById('contact-form');
 
-// Guide Form
+// Input sanitization function
+function sanitizeInput(input) {
+    if (typeof input !== 'string') return input;
+    return input
+        .replace(/[<>]/g, '') // Remove potential HTML tags
+        .replace(/javascript:/gi, '') // Remove javascript: protocol
+        .trim()
+        .substring(0, 1000); // Limit length
+}
+
+// Email validation
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Phone validation
+function isValidPhone(phone) {
+    const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+    return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 8;
+}
+
+// Guide Form with security
 if (guideForm) {
     guideForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const interest = formData.get('interest');
+        const name = sanitizeInput(formData.get('name'));
+        const email = sanitizeInput(formData.get('email'));
+        const interest = sanitizeInput(formData.get('interest'));
         
-        // Simulate form submission
+        // Validation
+        if (!name || name.length < 2) {
+            showNotification('Vänligen ange ditt namn (minst 2 tecken)', 'error');
+            return;
+        }
+        
+        if (!email || !isValidEmail(email)) {
+            showNotification('Vänligen ange en giltig e-postadress', 'error');
+            return;
+        }
+        
+        if (!interest) {
+            showNotification('Vänligen välj vad du är intresserad av', 'error');
+            return;
+        }
+        
+        // Simulate secure form submission
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Skickar...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Skickar säkert...';
         submitBtn.disabled = true;
         
+        // Simulate secure processing
         setTimeout(() => {
             // Show success message
             showNotification('Tack så mycket! Din guide skickas till din e-post inom några minuter. 💝', 'success');
             
-            // Reset form
+            // Reset form securely
             this.reset();
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
             
-            // Track conversion
+            // Track conversion (anonymized)
             trackConversion('guide_download', {
-                name: name,
-                email: email,
-                interest: interest
+                interest: interest,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Log security event
+            console.log('Guide form submitted securely:', {
+                timestamp: new Date().toISOString(),
+                interest: interest,
+                emailDomain: email.split('@')[1]
             });
         }, 2000);
     });
 }
 
-// Contact Form
+// Contact Form with security
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const phone = formData.get('phone');
-        const service = formData.get('service');
-        const message = formData.get('message');
+        const name = sanitizeInput(formData.get('name'));
+        const email = sanitizeInput(formData.get('email'));
+        const phone = sanitizeInput(formData.get('phone'));
+        const service = sanitizeInput(formData.get('service'));
+        const message = sanitizeInput(formData.get('message'));
         
-        // Simulate form submission
+        // Validation
+        if (!name || name.length < 2) {
+            showNotification('Vänligen ange ditt namn (minst 2 tecken)', 'error');
+            return;
+        }
+        
+        if (!email || !isValidEmail(email)) {
+            showNotification('Vänligen ange en giltig e-postadress', 'error');
+            return;
+        }
+        
+        if (phone && !isValidPhone(phone)) {
+            showNotification('Vänligen ange ett giltigt telefonnummer', 'error');
+            return;
+        }
+        
+        if (!service) {
+            showNotification('Vänligen välj vilken tjänst du är intresserad av', 'error');
+            return;
+        }
+        
+        if (!message || message.length < 10) {
+            showNotification('Vänligen skriv ett meddelande (minst 10 tecken)', 'error');
+            return;
+        }
+        
+        // Simulate secure form submission
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Skickar...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Skickar säkert...';
         submitBtn.disabled = true;
         
+        // Simulate secure processing
         setTimeout(() => {
             // Show success message
             showNotification('Tack för ditt meddelande! Jag läser varje ord med omsorg och återkommer inom 24 timmar. 💌', 'success');
             
-            // Reset form
+            // Reset form securely
             this.reset();
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
             
-            // Track conversion
+            // Track conversion (anonymized)
             trackConversion('contact_form', {
-                name: name,
-                email: email,
-                phone: phone,
                 service: service,
-                message: message
+                timestamp: new Date().toISOString()
+            });
+            
+            // Log security event
+            console.log('Contact form submitted securely:', {
+                timestamp: new Date().toISOString(),
+                service: service,
+                emailDomain: email.split('@')[1],
+                hasPhone: !!phone
             });
         }, 2000);
     });
@@ -372,29 +449,36 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Conversion tracking function
+// Secure conversion tracking function
 function trackConversion(eventType, data) {
-    // Google Analytics 4
+    // Only track anonymized data
+    const anonymizedData = {
+        event: eventType,
+        timestamp: data.timestamp || new Date().toISOString(),
+        service: data.service || 'unknown',
+        interest: data.interest || 'unknown'
+    };
+    
+    // Google Analytics 4 (if available)
     if (typeof gtag !== 'undefined') {
         gtag('event', eventType, {
             event_category: 'engagement',
-            event_label: data.email || 'unknown',
+            event_label: anonymizedData.service,
             value: 1
         });
     }
     
-    // Facebook Pixel
+    // Facebook Pixel (if available)
     if (typeof fbq !== 'undefined') {
         fbq('track', eventType, {
-            content_name: data.name || 'Lead',
-            content_category: data.service || 'General',
+            content_category: anonymizedData.service,
             value: 1,
             currency: 'SEK'
         });
     }
     
-    // Console log for development
-    console.log('Conversion tracked:', eventType, data);
+    // Console log for development (anonymized)
+    console.log('Conversion tracked (anonymized):', anonymizedData);
 }
 
 // Intersection Observer for animations

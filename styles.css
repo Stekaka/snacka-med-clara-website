@@ -2136,3 +2136,213 @@ html {
         padding: 2rem 0;
     }
 }
+
+/* GDPR POLICY STYLES */
+.gdpr-content {
+    padding: 120px 0 60px;
+    background: linear-gradient(135deg, var(--background-light), var(--background-color));
+    min-height: 100vh;
+}
+
+.gdpr-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(212, 165, 116, 0.1);
+}
+
+.gdpr-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.gdpr-intro {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.last-updated {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.gdpr-sections {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gdpr-section {
+    margin-bottom: 2.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(212, 165, 116, 0.1);
+    border: 1px solid rgba(212, 165, 116, 0.2);
+}
+
+.gdpr-section h2 {
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.gdpr-section h2 i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.gdpr-content-box {
+    background: rgba(254, 252, 247, 0.5);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.gdpr-content-box h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.gdpr-content-box ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.gdpr-content-box li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.gdpr-content-box p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.gdpr-content-box a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.gdpr-content-box a:hover {
+    text-decoration: underline;
+}
+
+.contact-info {
+    background: rgba(212, 165, 116, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+    width: 20px;
+}
+
+.gdpr-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(212, 165, 116, 0.1);
+}
+
+.gdpr-footer p {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.gdpr-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.gdpr-actions .btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gdpr-actions .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+}
+
+.gdpr-actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+}
+
+.gdpr-actions .btn-secondary {
+    background: transparent;
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-color);
+}
+
+.gdpr-actions .btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive GDPR */
+@media (max-width: 768px) {
+    .gdpr-content {
+        padding: 100px 0 40px;
+    }
+    
+    .gdpr-header h1 {
+        font-size: 2rem;
+    }
+    
+    .gdpr-section {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .gdpr-content-box {
+        padding: 1rem;
+    }
+    
+    .gdpr-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .gdpr-actions .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
