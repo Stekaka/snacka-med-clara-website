@@ -377,17 +377,12 @@ html {
 }
 
 /* Hide mobile elements on desktop */
-.mobile-link {
+.nav-menu-logo {
     display: none;
 }
 
-/* Show desktop elements on desktop */
-.desktop-link {
-    display: block;
-}
-
-.dropdown.desktop-link {
-    display: inline-block;
+.mobile-service-link {
+    display: none;
 }
 
 .nav-menu .nav-link:hover {
@@ -1757,18 +1752,18 @@ img, img:focus, img:hover, img:active, img:focus-visible {
         display: flex;
     }
     
-    /* Hide desktop elements on mobile */
-    .desktop-link {
-        display: none;
-    }
-    
     /* Show mobile elements on mobile */
-    .mobile-link {
+    .nav-menu-logo {
         display: block;
     }
     
-    .nav-menu-logo.mobile-link {
+    .mobile-service-link {
         display: block;
+    }
+    
+    /* Hide dropdown on mobile */
+    .dropdown {
+        display: none;
     }
     
     .nav-menu .nav-link {
