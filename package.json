@@ -1,0 +1,18 @@
+{
+  "name": "snacka-med-clara-website",
+  "version": "1.0.0",
+  "description": "Snacka med Clara website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "start": "live-server --port=3000 --open=/index.html",
+    "build": "echo 'Static site - no build step needed'",
+    "serve": "live-server --port=3000"
+  },
+  "keywords": ["website", "static", "html"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
