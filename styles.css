@@ -375,6 +375,14 @@ html {
     z-index: 1000;
 }
 
+.hamburger:focus,
+.hamburger:active,
+.hamburger:focus-visible {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .hamburger-line {
     display: block;
     width: 25px;
