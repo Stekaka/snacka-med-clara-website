@@ -403,7 +403,7 @@ html {
 .bar {
     width: 24px;
     height: 3px;
-    background-color: white;
+    background-color: var(--primary-color);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 1px;
 }
@@ -1829,12 +1829,12 @@ img, img:focus, img:hover, img:active, img:focus-visible {
     
     /* Service pages mobile optimizations */
     .service-hero {
-        padding: 4rem 0 3rem;
+        padding: 6rem 0 3rem;
         min-height: 50vh;
     }
     
     .service-hero-content {
-        padding: 15px 0.75rem 0;
+        padding: 20px 0.75rem 0;
         gap: 1.5rem;
     }
     
