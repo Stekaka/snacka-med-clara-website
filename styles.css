@@ -487,6 +487,31 @@ html {
     animation: bounce 2s infinite;
 }
 
+/* Ensure scroll arrow is always visible on mobile */
+@media (max-width: 768px) {
+    .scroll-indicator {
+        bottom: 1rem;
+    }
+    
+    .scroll-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-indicator {
+        bottom: 0.5rem;
+    }
+    
+    .scroll-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
 .scroll-arrow {
     width: 50px;
     height: 50px;
