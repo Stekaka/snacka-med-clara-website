@@ -1482,7 +1482,7 @@ img, img:focus, img:hover, img:active, img:focus-visible {
 
 .service-section-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 3rem;
     align-items: center;
     max-width: 1000px;
@@ -1493,15 +1493,15 @@ img, img:focus, img:hover, img:active, img:focus-visible {
 }
 
 .service-section-content.reverse {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 .service-section-content.reverse .service-section-text {
-    order: 2;
+    order: unset;
 }
 
 .service-section-content.reverse .service-section-image {
-    order: 1;
+    order: unset;
 }
 
 .service-section-text h2 {
@@ -1561,29 +1561,6 @@ img, img:focus, img:hover, img:active, img:focus-visible {
     box-shadow: 0 8px 30px rgba(168, 213, 186, 0.2);
 }
 
-.service-section-image .photo-placeholder {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(168, 213, 186, 0.15);
-    margin: 0 auto;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.service-section-image .photo-placeholder:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(168, 213, 186, 0.2);
-}
-
-.service-section-image .photo-placeholder i {
-    font-size: 2rem;
-    color: white;
-}
 
 .service-cta {
     background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 50%, var(--primary-color) 100%);
@@ -1771,8 +1748,7 @@ img, img:focus, img:hover, img:active, img:focus-visible {
         padding: 0 1rem;
     }
     
-    .service-section-content.reverse .service-section-text,
-    .service-section-content.reverse .service-section-image {
+    .service-section-content.reverse .service-section-text {
         order: unset;
     }
     
@@ -1784,14 +1760,6 @@ img, img:focus, img:hover, img:active, img:focus-visible {
         font-size: 0.95rem;
     }
     
-    .service-section-image .photo-placeholder {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .service-section-image .photo-placeholder i {
-        font-size: 1.5rem;
-    }
     
     .cta-content h2 {
         font-size: 1.8rem;
@@ -1913,14 +1881,6 @@ img, img:focus, img:hover, img:active, img:focus-visible {
         margin-bottom: 1rem;
     }
     
-    .service-section-image .photo-placeholder {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .service-section-image .photo-placeholder i {
-        font-size: 1.2rem;
-    }
     
     .service-cta {
         padding: 3rem 0;
