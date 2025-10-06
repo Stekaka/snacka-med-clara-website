@@ -393,19 +393,17 @@ html {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10000;
     position: relative;
-    background: rgba(255, 0, 0, 0.3);
-    border: 2px solid #FF0000;
 }
 
 .hamburger:hover {
-    background: rgba(255, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
     transform: scale(1.05);
 }
 
 .bar {
     width: 24px;
     height: 3px;
-    background-color: #FF0000;
+    background-color: rgba(255, 255, 255, 0.9);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 1px;
 }
