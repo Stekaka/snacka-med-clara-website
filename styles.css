@@ -401,7 +401,7 @@ html {
 .hamburger-line {
     width: 25px;
     height: 3px;
-    background-color: var(--primary-color);
+    background-color: #FF0000;
     border-radius: 2px;
     transition: all 0.3s ease;
     display: block;
