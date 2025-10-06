@@ -1652,18 +1652,21 @@ img, img:focus, img:hover, img:active, img:focus-visible {
     }
     
     .nav-menu .nav-link {
-        margin: 1rem 0;
-        font-size: 1.8rem;
+        margin: 0.8rem 0;
+        font-size: 1.6rem;
         color: rgba(255, 255, 255, 0.9);
         text-decoration: none;
-        padding: 1rem 2rem;
+        padding: 0.8rem 2rem;
         border-radius: 12px;
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         text-align: center;
         position: relative;
         overflow: hidden;
-        min-width: 300px;
+        min-width: 280px;
         font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .nav-menu .nav-link::before {
@@ -1691,9 +1694,9 @@ img, img:focus, img:hover, img:active, img:focus-visible {
         background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
         color: white;
         font-weight: 700;
-        margin-top: 2rem;
-        font-size: 2rem;
-        padding: 1.5rem 3rem;
+        margin-top: 1.5rem;
+        font-size: 1.8rem;
+        padding: 1rem 2.5rem;
         position: relative;
         overflow: hidden;
     }
