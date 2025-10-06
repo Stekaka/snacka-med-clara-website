@@ -383,29 +383,30 @@ html {
     left: 100%;
 }
 
+/* HAMBURGER MENU - NY KOD */
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    gap: 4px;
-    padding: 8px;
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 10000;
-    position: relative;
+    padding: 0;
+    z-index: 1000;
 }
 
-.hamburger:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: scale(1.05);
-}
-
-.bar {
-    width: 24px;
+.hamburger-line {
+    width: 25px;
     height: 3px;
-    background-color: rgba(255, 255, 255, 0.9);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 1px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover .hamburger-line {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Hero Section */
