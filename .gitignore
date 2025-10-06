@@ -93,3 +93,6 @@ logs
 *.mp4
 *.avi
 *.mkv
+
+# Exception: Allow compressed hero video
+!public/hero-video-compressed.mp4
