@@ -391,12 +391,14 @@ html {
     padding: 8px;
     border-radius: 8px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
+    z-index: 10000;
     position: relative;
+    background: rgba(255, 0, 0, 0.3);
+    border: 2px solid #FF0000;
 }
 
 .hamburger:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 0, 0, 0.5);
     transform: scale(1.05);
 }
 
@@ -1647,7 +1649,7 @@ img, img:focus, img:hover, img:active, img:focus-visible {
         left: -100%;
         width: 100%;
         height: calc(100vh - 80px);
-        background: rgba(0, 0, 0, 0.95);
+        background: #000000;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
